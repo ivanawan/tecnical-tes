@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/output.css">
+</head>
+<body>
+  <div class="navbar bg-base-100">
+  <div class="flex-1">
+    <a class="btn btn-ghost normal-case text-xl">todoApp</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal p-0 gap-4">
+{{#if login}}
+      <li><a href="/logout" class=" bg-slate-800 text-white">logout</a></li>
+{{else}}
+      <li><a href="#my-modal-1" class=" bg-slate-800 text-white">Login</a></li>
+      <li><a href="#my-modal-2" class=" bg-slate-800 text-white">Register</a></li>
+{{/if}}
+    </ul>
+  </div>
+</div>
+  <div class=" w-[55rem] mt-10 mx-auto ">
+    <h3 class=" text-2xl">add collection</h3>
+   <div class="  mt-5 ">
+    <form action="/add" method="post">
+  <input type="text" name="name" placeholder="collection name" class="input input-bordered input-sm w-full mt-4 max-w-xs" />
+  <hr class=" my-4  max-w-xs">
+  <input type="text" name="task[]" placeholder="task name" class="input input-bordered input-sm w-full  max-w-xs" />
+  <div id="root" class="max-w-xs">
+  </div>
+  
+   <a onclick="addField()" class="w-full  max-w-xs bg-slate-100 p-2 inline-block text-center">+</a>
+  
+
+   <button type="submit" class="mt-10 bg-slate-400 w-20 p-2 rounded ">submit</button>
+    </form>
+
+   </div>
+  </div>
+
+<div class="modal" id="my-modal-1">
+  <div class="modal-box relative">
+     <a href="#" class="btn btn-sm btn-circle absolute right-2 top-2">✕</a>
+    <h3 class="font-bold text-lg">Login</h3>
+    <form action="/login" method="post">
+    <input type="email" name="email" placeholder="Type email" class="input mt-3 input-bordered input-sm w-full " />
+    <input type="password" name="password" placeholder="Type pasword" class="input mt-3 input-bordered input-sm w-full " />
+    <button type="submit" class=" mt-4 rounded p-1 w-20 bg-slate-700 text-white">Login</button>
+    </form>
+  </div>
+</div>
+<!-- Put this part before </body> tag -->
+<div class="modal" id="my-modal-2">
+  <div class="modal-box relative">
+     <a href="#" class="btn btn-sm btn-circle absolute right-2 top-2">✕</a>
+    <h3 class="font-bold text-lg">Register</h3>
+    <form action="/register" method="post">
+    <input type="text" name="username" placeholder="Type username" class="input mt-4 input-bordered input-sm w-full " />
+    <input type="email" name="email" placeholder="Type email" class="input mt-3 input-bordered input-sm w-full " />
+    <input type="password" name="password" placeholder="Type pasword" class="input mt-3 input-bordered input-sm w-full " />
+    <button type="submit" class=" mt-4 rounded p-1 w-20 bg-slate-700 text-white">Register</button>
+    </form>
+  </div>
+</div>
+<script>
+        let input="";
+        let id=1;
+    function addField(){
+        console.log("add",id)
+       const e= document.getElementById('root')
+
+       input +=`<input type="text" name="task[]" id=${id}  placeholder="task name" class="input input-bordered input-sm w-full mt-4 max-w-xs" />`;
+       e.innerHTML=input;
+       id++;
+    }
+
+</script>
+</body>
+</html>

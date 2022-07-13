@@ -1,0 +1,22 @@
+{
+  "name": "tecnical-tes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanawan/tecnical-tes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivanawan/tecnical-tes/issues"
+  },
+  "homepage": "https://github.com/ivanawan/tecnical-tes#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
